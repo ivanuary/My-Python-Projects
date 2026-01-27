@@ -56,38 +56,71 @@ def point(c):
     else:
         return 0
 
-print("-------------------------------------")
-print("Welcome to my Tic Tac Toe Game!\n")
+exitnum = 1
+while exitnum == 1:
+    print("-------------------------------------")
+    print("Welcome to my Tic Tac Toe Game!\n")
 
-print("+---+---+---+")
-print("| 1 | 2 | 3 |")
-print("+---+---+---+")
-print("| 4 | 5 | 6 |")
-print("+---+---+---+")
-print("| 7 | 8 | 9 |")
-print("+---+---+---+")
-print("This is what the bored currently looks like!\n")
-print("It's X's Turn")
+    print("+---+---+---+")
+    print("| 1 | 2 | 3 |")
+    print("+---+---+---+")
+    print("| 4 | 5 | 6 |")
+    print("+---+---+---+")
+    print("| 7 | 8 | 9 |")
+    print("+---+---+---+")
+    print("This is what the bored currently looks like!\n")
+    print("It's X's Turn")
 
-boxes = [" ", " ", " ", " ", " ", " ", " ", " ", " ",]
-winner = 0
-counter = 0
-while winner == 0:
-    xturn(boxes)
-    winner = point(boxes)
-    counter += 1
-    if counter == 9:
+    boxes = [" ", " ", " ", " ", " ", " ", " ", " ", " ",]
+
+    winner = 0
+    counter = 0
+    while winner == 0:
+        xturn(boxes)
+        winner = point(boxes)
+        if winner != 0:
+            break
+        counter += 1
+        if counter == 9:
+            break
+
+        oturn(boxes)
+        winner = point(boxes)
+        if winner != 0:
+            break
+        counter += 1
+        if counter == 9:
+            break
+
+    if winner == 1:
+        print("Congrats, X Wins!\n")
+        print("Do you wish to Exit[0] or Play Again[1]?")
+        while True:
+            exitnum = int(input("Input here: "))
+            if exitnum == 1 or exitnum == 0:
+                break
+            else:
+                print("Your input is INVALID, try again...")
+    elif winner == 2:
+        print("Congrats, O Wins!")
+        print("Do you wish to Exit[0] or Play Again[1]?")
+        while True:
+            exitnum = int(input("Input here: "))
+            if exitnum == 1 or exitnum == 0:
+                break
+            else:
+                print("Your input is INVALID, try again...")
+    elif counter == 9:
+        print("No One Won That Round!")
+        print("Do you wish to Exit[0] or Play Again[1]?")
+        while True:
+            exitnum = int(input("Input here: "))
+            if exitnum == 1 or exitnum == 0:
+                break
+            else:
+                print("Your input is INVALID, try again...")
+
+    if exitnum == 0:
         break
-
-    oturn(boxes)
-    winner = point(boxes)
-    counter += 1
-    if counter == 9:
-        break
-
-if winner == 1:
-    print("Congrats, X Wins!")
-elif winner == 2:
-    print("Congrats, O Wins!")
-elif counter == 9:
-    print("No One Won Thet Round! Try Again?")
+quit()
+    

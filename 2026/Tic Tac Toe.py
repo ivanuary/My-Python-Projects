@@ -1,5 +1,10 @@
 def xturn(a):
-    xbox = int(input("Enter the box you will put X in: ")) - 1
+    checkstat = 0
+    while checkstat == 0:
+        xbox = int(input("Enter the box you will put O in: ")) - 1
+        checkstat = checkbox(a, xbox)
+        if checkstat == 1:
+            break
     a[xbox] = "X"
     print("+---+---+---+")
     print("| " + boxes[0] + " | " + boxes[1] + " | " + boxes[2] + " |")
@@ -10,7 +15,12 @@ def xturn(a):
     print("+---+---+---+\n")
 
 def oturn(b):
-    obox = int(input("Enter the box you will put O in: ")) - 1
+    checkstat = 0
+    while checkstat == 0:
+        obox = int(input("Enter the box you will put O in: ")) - 1
+        checkstat = checkbox(b, obox)
+        if checkstat == 1:
+            break
     b[obox] = "O"
     print("+---+---+---+")
     print("| " + boxes[0] + " | " + boxes[1] + " | " + boxes[2] + " |")
@@ -19,6 +29,13 @@ def oturn(b):
     print("+---+---+---+")
     print("| " + boxes[6] + " | " + boxes[7] + " | " + boxes[8] + " |")
     print("+---+---+---+\n")
+
+def checkbox(d, e):
+    if d[e] != " ":
+        print("This box is not empty, please pick an empty box\n")
+        return 0
+    else:
+        return 1
 
 def point(c):
     if c[0] == c[1] == c[2] == "X":

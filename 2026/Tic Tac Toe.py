@@ -31,11 +31,15 @@ def oturn(b):
     print("+---+---+---+\n")
 
 def checkbox(d, e):
-    if d[e] != " ":
-        print("This box is not empty, please pick an empty box\n")
+    if e > 8 or e < 0:
+        print("Invalid Box Number, Choose from 1-9\n")
         return 0
     else:
-        return 1
+        if d[e] != " ":
+            print("This box is not empty, please pick an empty box\n")
+            return 0
+        else:
+            return 1
 
 def point(c):
     if c[0] == c[1] == c[2] == "X":

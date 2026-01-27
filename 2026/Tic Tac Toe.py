@@ -1,12 +1,12 @@
 def xturn(a):
     checkstat = 0
     while checkstat == 0:
-        xbox = int(input("Enter the box you will put O in: ")) - 1
+        xbox = int(input("Enter the box you will put X in: ")) - 1
         checkstat = checkbox(a, xbox)
         if checkstat == 1:
             break
     a[xbox] = "X"
-    print("+---+---+---+")
+    print("\n+---+---+---+")
     print("| " + boxes[0] + " | " + boxes[1] + " | " + boxes[2] + " |")
     print("+---+---+---+")
     print("| " + boxes[3] + " | " + boxes[4] + " | " + boxes[5] + " |")
@@ -22,7 +22,7 @@ def oturn(b):
         if checkstat == 1:
             break
     b[obox] = "O"
-    print("+---+---+---+")
+    print("\n+---+---+---+")
     print("| " + boxes[0] + " | " + boxes[1] + " | " + boxes[2] + " |")
     print("+---+---+---+")
     print("| " + boxes[3] + " | " + boxes[4] + " | " + boxes[5] + " |")
@@ -76,9 +76,9 @@ def point(c):
 exitnum = 1
 while exitnum == 1:
     print("-------------------------------------")
-    print("Welcome to my Tic Tac Toe Game!\n")
+    print("Welcome to my Tic Tac Toe Game!")
 
-    print("+---+---+---+")
+    print("\n+---+---+---+")
     print("| 1 | 2 | 3 |")
     print("+---+---+---+")
     print("| 4 | 5 | 6 |")

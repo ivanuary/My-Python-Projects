@@ -24,11 +24,21 @@ while menu == 0:
         print(numguess)
         print("The program now has chosen a number in the range of 1-10...")
         guess = int(input("Enter Your First Guess: "))
-        
-        if guess == numguess:
+
+        range = abs(numguess - guess)
+
+        if range == 0:
             print("Congrats, You Have Guessed Correctly!")
             print("Your Number: " + str(guess))
             print("The Computer's Number: " + str(numguess))
+        elif range <= 2:
+            print("You're Burning!")
+        elif range <= 3:
+            print("You're Getting Hot!")
+        elif range <= 5:
+            print("You're Getting Cold!")
+        elif range > 5:
+            print("You're Freezing!")
         
     elif difficulty == 2:
         numguess = rand.randint(1, 100)
